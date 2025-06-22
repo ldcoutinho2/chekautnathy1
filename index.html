@@ -3,8 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🔒 ATENÇÃO: checkout - Nathy</title>
+    <title>🔒 Pagamento Privado - Nathy</title>
     <link rel="icon" href="logo.png">
+
+    <!-- Meta Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', 'COLOQUE_SEU_PIXEL_AQUI');
+      fbq('track', 'PageView');
+    </script>
+    <noscript>
+      <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=COLOQUE_SEU_PIXEL_AQUI&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Meta Pixel Code -->
 
     <style>
         body {
@@ -78,21 +97,22 @@
 <div class="container">
     <img src="banner2.png" class="banner" alt="Banner +18">
 
-    <div class="alert">🚨 ATENÇÃO: Vaga reservada para sua chamada de vídeo privada com a Nathy</div>
-    <h1>🔒 Pagamento seguro</h1>
-    <p>Finalize seu pagamento AGORA e tenha acesso IMEDIATO à chamada de vídeo sem censura... Só eu e você</p>
+    <div class="alert">🚨 ATENÇÃO: Pagamento protegido para sua chamada de vídeo privada com a Nathy</div>
+    <h1>🔒 Pagamento Seguro</h1>
+    <p>Finalize seu pagamento AGORA e tenha acesso IMEDIATO à chamada de vídeo sem censura... Só eu e você!</p>
 
     <h3>⬇️ Copia o código PIX abaixo e faz o pagamento:</h3>
-<div class="pix-code" id="pixCode">
-    00020101021226800014br.gov.bcb.pix2558pix.delbank.com.br/v2/cob/vcharged6c3b4eda9274831ac37d9a885204000053039865802BR5907DELBANK6007ARACAJU62070503***630452D1
-</div>
-<button class="btn" onclick="copiarPix()">📋 Copiar Código PIX</button>
-
+    <div class="pix-code" id="pixCode">
+        COLE_AQUI_SEU_CODIGO_PIX
+    </div>
+    <button class="btn" onclick="copiarPix(); fbq('track', 'InitiateCheckout')">📋 Copiar Código PIX</button>
 
     <div class="timer">⏳ Código expira em: <span id="countdown">05:00</span></div>
 
     <br>
-    <a href="https://wa.me/SEUNUMEROWHATSAPP" class="btn">✅ JÁ PAGUEI - QUERO LIBERAÇÃO!</a>
+    <a href="https://wa.me/SEUNUMEROWHATSAPP" class="btn" id="confirmar" style="display:none;" onclick="fbq('track', 'Purchase')">
+        ✅ JÁ PAGUEI - QUERO LIBERAÇÃO!
+    </a>
 
     <div class="footer">
         <p>Site independente. Nenhum vínculo com Instagram, Meta ou qualquer rede social.</p>
@@ -111,8 +131,12 @@
         countdown.innerText = `${minutes}:${seconds}`;
         if(time > 0) time--;
     }, 1000);
-</script>
-    <script>
+
+    // Mostrar botão do WhatsApp após 30 segundos
+    setTimeout(() => {
+        document.getElementById('confirmar').style.display = 'block';
+    }, 30000);
+
     function copiarPix() {
         const pix = document.getElementById("pixCode").innerText;
         navigator.clipboard.writeText(pix).then(function() {
@@ -122,6 +146,10 @@
         });
     }
 </script>
+
+</body>
+</html>
+
 
 </body>
 </html>
