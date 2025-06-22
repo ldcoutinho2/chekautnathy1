@@ -83,9 +83,11 @@
     <p>Garanta AGORA seu acesso exclusivo... Últimas vagas!</p>
 
     <h3>⬇️ Copia o código PIX abaixo e faz o pagamento:</h3>
-    <div class="pix-code">
-        00020101021226800014br.gov.bcb.pix2558pix.delbank.com.br/v2/cob/vcharged6c3b4eda9274831ac37d9a885204000053039865802BR5907DELBANK6007ARACAJU62070503***630452D1
-    </div>
+<div class="pix-code" id="pixCode">
+    00020101021226800014br.gov.bcb.pix2558pix.delbank.com.br/v2/cob/vcharged6c3b4eda9274831ac37d9a885204000053039865802BR5907DELBANK6007ARACAJU62070503***630452D1
+</div>
+<button class="btn" onclick="copiarPix()">📋 Copiar Código PIX</button>
+
 
     <div class="timer">⏳ Código expira em: <span id="countdown">05:00</span></div>
 
@@ -110,6 +112,17 @@
         if(time > 0) time--;
     }, 1000);
 </script>
+    <script>
+    function copiarPix() {
+        const pix = document.getElementById("pixCode").innerText;
+        navigator.clipboard.writeText(pix).then(function() {
+            alert("✅ Código PIX copiado com sucesso!");
+        }, function() {
+            alert("❌ Erro ao copiar. Copia manualmente.");
+        });
+    }
+</script>
 
 </body>
 </html>
+
