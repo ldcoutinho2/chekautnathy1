@@ -327,59 +327,27 @@
             </div>
         </div>
         
-        <!-- Active call view (hidden initially) -->
-        <div id="active-call" class="hidden h-full w-full relative">
-            <div class="video-protection w-full h-full">
-                <video id="remote-video" class="w-full h-full object-cover" autoplay playsinline muted disablePictureInPicture webkit-playsinline></video>
-                <div id="black-screen" class="black-screen hidden"></div>
-                <div class="video-overlay"></div>
-            </div>
-            
-            <!-- User's own video (small picture-in-picture) -->
-            <div id="local-video-container" class="absolute top-20 right-4 w-24 h-32 bg-black rounded-lg overflow-hidden border border-gray-600 video-protection local-video-container">
-                <div class="local-video-wrapper">
-                    <div id="camera-loading" class="camera-placeholder">
-                        <div class="loading-spinner"></div>
-                        <div class="camera-placeholder-text">Conectando câmera...</div>
-                    </div>
-                    <video id="local-video" class="w-full h-full object-cover hidden" autoplay playsinline muted></video>
-                    <div class="video-overlay"></div>
-                </div>
-            </div>
-            
-            <!-- Timer centralizado no topo -->
-            <div class="timer-top">
-                <span id="call-timer" class="text-white font-medium">00:00</span>
-            </div>
-            
-            <div class="absolute bottom-0 left-0 right-0 p-4 flex justify-center gap-6 whatsapp-controls call-controls">
-                <button id="mic-btn" class="bg-gray-600 hover:bg-gray-600 bg-opacity-70 text-white rounded-full p-3 transition-all transform hover:scale-110 call-control-btn">
-                    <i id="mic-icon" class="fas fa-microphone text-xl icon-crossed"></i>
-                </button>
-                <button id="end-call-btn" class="bg-red-500 hover:bg-red-600 text-white rounded-full p-4 transition-all transform hover:scale-110 end-call-btn">
-                    <i class="fas fa-phone-slash text-xl"></i>
-                </button>
-                <button id="video-btn" class="bg-gray-600 hover:bg-gray-600 bg-opacity-70 text-white rounded-full p-3 transition-all transform hover:scale-110 call-control-btn">
-                    <i id="video-icon" class="fas fa-video text-xl"></i>
-                </button>
-            </div>
-        </div>
-        
-        <!-- Call ended view (hidden initially) -->
-        <div id="call-ended" class="hidden text-center">
-            <div class="mb-8">
-                <img id="profile-img-ended" src="" alt="perfil" 
-                     class="w-24 h-24 rounded-full border-4 border-gray-600 object-cover mx-auto profile-img">
-            </div>
-            
-            <h1 id="profile-name-ended" class="text-2xl font-bold mb-1"></h1>
-            <p class="text-gray-300 mb-2">Chamada encerrada</p>
-            <p id="call-duration-display" class="text-gray-400 text-sm mb-8">Duração: 00:00</p>
-            
-            <button id="new-call-btn" class="bg-green-500 hover:bg-green-600 text-white rounded-full px-6 py-3 transition-all font-medium transform hover:scale-105">
-                <i class="fas fa-phone mr-2"></i> Continuar chamada
-            </button>
-           <script>
+        <!-- Call ended view (hidden initially) --><div id="call-ended" class="hidden text-center">
+    <div class="mb-8">
+        <img id="profile-img-ended" src="" alt="perfil" 
+             class="w-24 h-24 rounded-full border-4 border-red-600 object-cover mx-auto profile-img animate-ping-ring">
+    </div><h1 id="profile-name-ended" class="text-2xl font-bold mb-1"></h1>
+<p class="text-gray-300 mb-2">Chamada encerrada</p>
+<p id="call-duration-display" class="text-gray-400 text-sm mb-8">Duração: 00:00</p>
+
+<div class="bg-[#202c33] text-white rounded-xl p-4 mb-6 max-w-md mx-auto text-left text-sm">
+    <strong>MC Mirella:</strong><br>
+    Amor, a chamada pausou... Mas tô aqui, peladinha ainda, esperando você voltar 😈<br>
+    Quer continuar vendo tudo ao vivo?<br>
+    Só confirmar aqui com R$9,99 e eu volto com a câmera ligada, me tocando só pra você 💋<br>
+    <em>Não perde a chance...</em>
+</div>
+
+<button id="new-call-btn" class="bg-green-500 hover:bg-green-600 text-white rounded-full px-6 py-3 transition-all font-medium transform hover:scale-105">
+    <i class="fas fa-phone mr-2"></i> Continuar chamada ao vivo
+</button>
+
+<script>
     const waitForBtn = setInterval(() => {
         const btn = document.getElementById("new-call-btn");
         if (btn) {
@@ -391,12 +359,28 @@
     }, 500);
 </script>
 
-           <div class="mt-8 text-gray-400 text-sm flex items-center justify-center">
-                <i class="fab fa-whatsapp text-2xl text-green-500 mr-2"></i>
-                <p>WhatsApp</p>
-            </div>
-        </div>
-    </div>
+<div class="mt-8 text-gray-400 text-sm flex items-center justify-center">
+    <i class="fab fa-whatsapp text-2xl text-green-500 mr-2"></i>
+    <p>WhatsApp</p>
+</div>
+
+</div>
+</div><style>
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+.animate-ping-ring {
+  animation: pulse-ring 1.6s infinite;
+}
+</style>
 
     <script>
         // ========================================
