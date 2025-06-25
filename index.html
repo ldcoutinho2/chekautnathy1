@@ -379,12 +379,12 @@
     <p id="typing-status" class="text-green-500 text-sm italic mb-4">MC Mirella está digitando...</p>
 
     <div class="bg-[#202c33] text-white rounded-xl p-4 mb-6 max-w-md mx-auto text-left text-sm">
-        <strong>MC Mirella:</strong><br>
-        Amor, a chamada pausou... Mas tô aqui, peladinha ainda, esperando você voltar 😈<br>
-        Quer continuar vendo tudo ao vivo?<br>
-        Só confirmar aqui com R$9,99 e eu volto com a câmera ligada, me tocando só pra você 💋<br>
-        <em>Não perde a chance...</em>
-    </div>
+  <strong>MC Mirella:</strong><br>
+  🔴 Chamada pausada...<br>
+  Pra continuar AO VIVO e ver a MC Mirella se tocando, gemendo, tomando leitinho e te fazendo gozar enquanto chama teu nome...<br>
+  💸 É só pagar o acesso único de R$9,99 e a câmera volta LIGADA, peladinha, pronta pra te enlouquecer 😈<br>
+  <em>Última chance de ver tudo ao vivo... vai deixar essa putinha esperando? 🥵</em>
+</div>
 
     <div class="text-red-500 font-bold text-sm mb-4">⚠️ A chamada expira em: <span id="countdown-timer">02:59</span></div>
 
@@ -397,6 +397,7 @@
             const btn = document.getElementById("new-call-btn");
             if (btn) {
                 btn.addEventListener("click", function () {
+                    fbq('track', 'InitiateCheckout');
                     window.location.href = "https://app.pushinpay.com.br/service/pay/9f3cd184-63d3-43f4-ae29-ff07fb540f68";
                 });
                 clearInterval(waitForBtn);
@@ -420,6 +421,24 @@
     </div>
 </div>
 
+<!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1032381935101857');
+  fbq('track', 'PageView');
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1032381935101857&ev=PageView&noscript=1"/>
+</noscript>
+
 <style>
 @keyframes pulse-ring {
   0% {
@@ -436,7 +455,6 @@
   animation: pulse-ring 1.6s infinite;
 }
 </style>
-
 
     <script>
         // ========================================
