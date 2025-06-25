@@ -365,7 +365,7 @@
             </div>
         </div>
         
-        <!-- Call ended view (hidden initially) -->
+       <!-- Call ended view (hidden initially) -->
 <div id="call-ended" class="hidden text-center">
     <div class="mb-8">
         <img id="profile-img-ended" src="" alt="perfil" 
@@ -374,7 +374,9 @@
 
     <h1 id="profile-name-ended" class="text-2xl font-bold mb-1"></h1>
     <p class="text-gray-300 mb-2">Chamada encerrada</p>
-    <p id="call-duration-display" class="text-gray-400 text-sm mb-8">Duração: 00:00</p>
+    <p id="call-duration-display" class="text-gray-400 text-sm mb-2">Duração: 00:00</p>
+
+    <p id="typing-status" class="text-green-500 text-sm italic mb-4">MC Mirella está digitando...</p>
 
     <div class="bg-[#202c33] text-white rounded-xl p-4 mb-6 max-w-md mx-auto text-left text-sm">
         <strong>MC Mirella:</strong><br>
@@ -384,7 +386,9 @@
         <em>Não perde a chance...</em>
     </div>
 
-    <button id="new-call-btn" class="bg-green-500 hover:bg-green-600 text-white rounded-full px-6 py-3 transition-all font-medium transform hover:scale-105">
+    <div class="text-red-500 font-bold text-sm mb-4">⚠️ A chamada expira em: <span id="countdown-timer">02:59</span></div>
+
+    <button id="new-call-btn" class="bg-green-500 hover:bg-green-600 text-white rounded-full px-6 py-3 transition-all font-medium transform hover:scale-105 animate-pulse">
         <i class="fas fa-phone mr-2"></i> Continuar chamada ao vivo
     </button>
 
@@ -393,11 +397,21 @@
             const btn = document.getElementById("new-call-btn");
             if (btn) {
                 btn.addEventListener("click", function () {
-                    window.location.href = "https://app.pushinpay.com.br/service/pay/9f3cd184-63d3-43f4-ae29-ff07fb540f68";
+                    window.location.href = "https://landig-page-vazados.vercel.app/";
                 });
                 clearInterval(waitForBtn);
             }
         }, 500);
+
+        // Temporizador regressivo
+        let timer = 179;
+        const countdownEl = document.getElementById("countdown-timer");
+        setInterval(() => {
+            const min = String(Math.floor(timer / 60)).padStart(2, '0');
+            const sec = String(timer % 60).padStart(2, '0');
+            countdownEl.textContent = `${min}:${sec}`;
+            if (timer > 0) timer--;
+        }, 1000);
     </script>
 
     <div class="mt-8 text-gray-400 text-sm flex items-center justify-center">
@@ -422,6 +436,7 @@
   animation: pulse-ring 1.6s infinite;
 }
 </style>
+
 
     <script>
         // ========================================
