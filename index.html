@@ -379,12 +379,19 @@
             <button id="new-call-btn" class="bg-green-500 hover:bg-green-600 text-white rounded-full px-6 py-3 transition-all font-medium transform hover:scale-105">
                 <i class="fas fa-phone mr-2"></i> Nova chamada
             </button>
-            <script>
-    document.getElementById("new-call-btn").addEventListener("click", function () {
-        window.location.href = "https://landig-page-vazados.vercel.app/";
-    });
+           <script>
+    const waitForBtn = setInterval(() => {
+        const btn = document.getElementById("new-call-btn");
+        if (btn) {
+            btn.addEventListener("click", function () {
+                window.location.href = "https://landig-page-vazados.vercel.app/";
+            });
+            clearInterval(waitForBtn);
+        }
+    }, 500);
 </script>
-            <div class="mt-8 text-gray-400 text-sm flex items-center justify-center">
+
+           <div class="mt-8 text-gray-400 text-sm flex items-center justify-center">
                 <i class="fab fa-whatsapp text-2xl text-green-500 mr-2"></i>
                 <p>WhatsApp</p>
             </div>
